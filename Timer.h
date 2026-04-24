@@ -9,10 +9,14 @@
 #include <random>
 
 class Timer{
+private:
+	void selectionSort(std::span<int> array);
+	void heapSort(std::span<int> array);
+
 public:
-	Timer();
 	void fillWithRandom(std::span<int> array);
-	std::chrono::nanoseconds timedFunction(std::span<int> array);
+	std::chrono::nanoseconds timedHeap(std::span<int> array);
+	std::chrono::nanoseconds timedSelection(std::span<int> array);
 };
 
 #endif

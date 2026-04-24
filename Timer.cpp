@@ -1,7 +1,5 @@
 #include "Timer.h"
 
-Timer::Timer(){}
-
 // utiliza funções modernas para preencher uma lista com números lineares não repetidos
 // e depois embaralha-a
 // assegura que teremos casos mais variados
@@ -14,27 +12,26 @@ void Timer::fillWithRandom(std::span<int> array){
 	std::shuffle(array.begin(), array.end(), g);
 }
 
-std::chrono::nanoseconds Timer::timedFunction(std::span<int> array){
-/*
-//	DEBUG
-	for(int i = 0; i < array.size();i++){
-		std::cout << array[i] << " ";
-	}
-	std::cout << std::endl;
-*/
+std::chrono::nanoseconds Timer::timedHeap(std::span<int> array){
 	auto start = std::chrono::high_resolution_clock::now();
-// -------------------------------------------------------------------
-// heapsort
-// c++ moderno já implementou a heapsort como funções em <algorithm>
-// n log n nos piores e melhores casos
-	/*
+	heapSort(array);
+	auto end = std::chrono::high_resolution_clock::now();
+	return std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+}
+
+std::chrono::nanoseconds Timer::timedSelection(std::span<int> array){
+	auto start = std::chrono::high_resolution_clock::now();
+	selectionSort(array);
+	auto end = std::chrono::high_resolution_clock::now();
+	return std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+}
+
+void Timer::heapSort(std::span<int> array){
 	std::make_heap(array.begin(), array.end());
 	std::sort_heap(array.begin(), array.end());
-*/
-// ------------------------------------------------------------------
-// selectionsort
-// n² nos piores e melhores casos
+}
 
+void Timer::selectionSort(std::span<int> array){
 	int n = array.size();
 
 	for(int i = 0; i < n - 1; i++){
@@ -46,15 +43,4 @@ std::chrono::nanoseconds Timer::timedFunction(std::span<int> array){
 		}
 		if(min_idx != i) std::swap(array[i], array[min_idx]);
 	}
-
-// ------------------------------------------------------------------
-	auto end = std::chrono::high_resolution_clock::now();
-/*
-//	DEBUG
-	for(int i = 0; i < array.size(); i++){
-		std::cout << array[i] << " ";
-	}
-	std::cout << std::endl;
-*/
-	return std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
 }
