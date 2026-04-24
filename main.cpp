@@ -11,10 +11,11 @@ int main(int argc, char* argv[]){
 	// passar tamanho do vector pelo terminal
 	int num = 32;
 	if(argc >= 2) num = std::stoi(argv[1]);
+	if(num <= 0) num = 32;
 	std::vector<int> array(num);
 	
 	// passar qual função utilizar
-	int func = 1;
+	int func = 3;
 	if(argc >= 3) func = std::stoi(argv[2]);
 
 	std::chrono::nanoseconds duracao = std::chrono::nanoseconds::zero();
