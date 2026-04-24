@@ -1,3 +1,0 @@
-/home/binnt/Programas/Códigos C++/EDB2-0704/build/CMakeFiles/timer.dir
-/home/binnt/Programas/Códigos C++/EDB2-0704/build/CMakeFiles/edit_cache.dir
-/home/binnt/Programas/Códigos C++/EDB2-0704/build/CMakeFiles/rebuild_cache.dir

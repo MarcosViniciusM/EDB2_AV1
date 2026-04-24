@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/timer.dir/link.d CMakeFiles/timer.dir/main.cpp.o CMakeFiles/timer.dir/TempoMedio.cpp.o CMakeFiles/timer.dir/Timer.cpp.o -o timer
