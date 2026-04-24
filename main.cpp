@@ -25,6 +25,7 @@ int main(int argc, char* argv[]){
 		switch(func){
 			case 1: tempo.add(timer.timedHeap(array)); break;
 			case 2: tempo.add(timer.timedSelection(array)); break;
+			default: tempo.add(timer.timedHeap(array)); break;
 		}
 	}
 
@@ -34,6 +35,7 @@ int main(int argc, char* argv[]){
 
 	if(func==1)std::cout << "Heapsort.";
 	else if(func == 2)std::cout << "Selection Sort.";
+	else std::cout << "defaulted to Heapsort.";
 	std::cout << std::endl;
 
 	return 0;
